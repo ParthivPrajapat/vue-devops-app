@@ -1,47 +1,82 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div id="app">
+    <div class="card">
+      <h1>🚀 CI/CD DevOps Project</h1>
+      <h2>Vue + Docker + Kubernetes</h2>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <p>
+        Hello <strong>Parthiv</strong> 👋<br>
+        This application is running inside a Docker container.
+      </p>
+
+      <button @click="changeMessage">Click Me</button>
+
+      <p class="message">{{ message }}</p>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      message: ""
+    };
+  },
+  methods: {
+    changeMessage() {
+      this.message = "🎉 Congratulations! Your DevOps pipeline will work perfectly.";
+    }
+  }
+};
+</script>
+
+<style>
+#app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #42b883, #35495e);
+  font-family: Arial, sans-serif;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+h1 {
+  color: #42b883;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+h2 {
+  color: #35495e;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #42b883;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2e8b6c;
+}
+
+.message {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #35495e;
 }
 </style>
